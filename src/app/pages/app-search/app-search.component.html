@@ -1,1 +1,20 @@
-<p>app-search works!</p>
+<div class="container mx-auto flex flex-col items-center">
+  <p>Digite o nome para consultar nas listas de agendamento:</p>
+  <br />
+  <input
+    class="text-center"
+    type="text"
+    name="name"
+    id="name"
+    size="60"
+    placeholder="JOSE MARIA DA SILVA"
+    #nameInput
+  />
+  <br />
+  <button
+    class="px-4 py-2 bg-blue-600 text-white rounded"
+    (click)="search(nameInput.value)"
+  >
+    Procurar
+  </button>
+</div>

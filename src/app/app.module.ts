@@ -1,15 +1,16 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppSearchComponent } from './pages/app-search/app-search.component';
-import { AppNotFoundComponent } from './pages/app-not-found/app-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, AppSearchComponent, AppNotFoundComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  declarations: [AppComponent, AppSearchComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

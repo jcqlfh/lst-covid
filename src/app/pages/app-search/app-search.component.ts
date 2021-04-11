@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AgendamentoService } from 'src/app/services/agendamento.service';
 
 @Component({
   selector: 'app-app-search',
   templateUrl: './app-search.component.html',
-  styleUrls: ['./app-search.component.css']
+  styleUrls: ['./app-search.component.css'],
 })
-export class AppSearchComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class AppSearchComponent {
+  constructor(private agendamentoSrv: AgendamentoService) {}
+  search(name: string) {
+    alert(name);
+    this.agendamentoSrv.fetchName().subscribe();
   }
-
 }
