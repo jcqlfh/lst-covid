@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AgendamentoService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private readonly httpClient: HttpClient) {}
 
-  fetchName() {
-    return this.httpClient.get().pipe(
+  fetchName(name: string) {
+    return this.httpClient.get(`${environment.api}/agendamentos/${name}`).pipe(
       map(response => {
         console.log(response);
-        return of();
+        return response;
       })
     );
   }
