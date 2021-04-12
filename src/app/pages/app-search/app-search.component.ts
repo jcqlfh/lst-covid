@@ -8,13 +8,21 @@ import { AgendamentoService } from 'src/app/services/agendamento.service';
   styleUrls: ['./app-search.component.css'],
 })
 export class AppSearchComponent {
+  isLoading: boolean;
   agendamento: IAgendamento;
 
   constructor(private agendamentoSrv: AgendamentoService) {}
   search(name: string) {
+    this.isLoading = true;
     this.agendamentoSrv.fetchName(name).subscribe(
-      agendamento => (this.agendamento = agendamento as IAgendamento),
-      err => console.log(err)
+      agendamento => {
+        this.isLoading = false;
+        this.agendamento = agendamento as IAgendamento;
+      },
+      err => {
+        this.isLoading = false;
+        console.log(err);
+      }
     );
   }
 }
