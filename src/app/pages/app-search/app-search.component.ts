@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IAgendamento } from 'src/app/models/IAgendamento';
-import { AgendamentoService } from 'src/app/services/agendamento.service';
+import { IScheduling } from 'src/app/models/IScheduling';
+import { SchedulingService } from 'src/app/services/SchedulingService';
 
 @Component({
   selector: 'app-app-search',
@@ -9,19 +9,19 @@ import { AgendamentoService } from 'src/app/services/agendamento.service';
 })
 export class AppSearchComponent {
   isLoading: boolean;
-  agendamento: IAgendamento;
+  scheduling: IScheduling;
 
-  constructor(private agendamentoSrv: AgendamentoService) {}
+  constructor(private schedulingSrv: SchedulingService) {}
   search(name: string) {
     this.isLoading = true;
-    this.agendamentoSrv.fetchName(name).subscribe(
-      agendamento => {
+    this.schedulingSrv.fetchName(name).subscribe(
+      scheduling => {
         this.isLoading = false;
-        this.agendamento = agendamento as IAgendamento;
+        this.scheduling = scheduling as IScheduling;
       },
       err => {
         this.isLoading = false;
-        console.log(err);
+        console.error(err);
       }
     );
   }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:5000',
+  api: 'https://lst-covid-api.herokuapp.com/',
 };
 
 /*
