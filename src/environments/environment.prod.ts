@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'http://localhost:5000',
+  api: 'https://marine-actor-237118.rj.r.appspot.com/',
 };
